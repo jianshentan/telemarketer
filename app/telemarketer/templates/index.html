@@ -1,0 +1,72 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div id="logo-icon"><img></div>
+
+<a href="/about">
+	<div id="about-icon">
+		<i class="fa fa-question" aria-hidden="true"></i>
+	</div>
+</a>
+
+<div id="main-grid">
+    <div class="main-grid-cell" id="left-panel">
+		<div id="call-form-container" class="container-fluid">
+			<div id="splash-graphic"><img src="/assets/images/splash.gif"></div>
+			<div class="h1">
+				Interrupt Thanksgiving dinner fights with friendly telemarketing calls!
+			</div>
+			<div class="h4">
+				Political arguments can get out of hand - a convinient distraction gives everybody a chance to reset.
+			</div>
+			<div id="mobile-start-call-container" class="mobile-only">
+				</br>
+				<div id="mobile-start-call">
+					<div>Start your call </div>
+				</div>
+				<div style="font-size:1.5em;"><i class="fa fa-angle-down" aria-hidden="true"></i></div>
+			</div>
+		</div>
+		<div id="created-by-icon">
+			<img src="/assets/images/nobias-logo.png">	
+		</div>
+    </div>
+    <div class="main-grid-cell" id="right-panel">
+		<div id="call-form-container" class="container-fluid">
+			<form action="/dial" method="post" id="call-form">
+				<div>The number you wish to call:</div>
+				<input 
+					type="tel" id="phone" name="phone" 
+					pattern="1\ ([0-9]{3})\ [0-9]{3}-[0-9]{4}" 
+					placeholder="1 (234) 567-8910"
+					maxlength="16" required>
+				<br>
+				<div>What call should we send:</div>
+				<div id="track-options">
+					{% for key, value in tracks.items() %}
+					<div class="track-option" {% if loop.index == 1 %}checked{% endif %}>
+						<input 
+							type="radio" id="{{key}}" 
+							name="track" value="{{key}}" {% if loop.index == 1 %}checked{% endif %}>
+						<span class="audio-controller">
+							<button type="button" class="playpause" title="play"><i class="fa fa-play" aria-hidden="true"></i></button>
+						</span>
+						<audio
+							id="{{key}}-preview" controls
+							src="{{value.get('url')}}">
+							Your browser does not support the <code>audio</code> element.
+						</audio>
+						<div class="track-info">
+							<label for="{{key}}">{{value.get('name')}}</label>
+							<div for="{{key}}">{{value.get('desc')}}</div>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+				<br>
+				<button id="call-btn" type="submit" name="submit" value="call">CALL NOW &nbsp;<i class="fa fa-phone" aria-hidden="true"></i></button>
+			</form>
+			<div id="call-form-results"></div>
+		</div>
+    </div>
+</div>
+{% endblock %}
