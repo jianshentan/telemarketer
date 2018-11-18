@@ -10,13 +10,13 @@
 
 <div id="main-grid">
     <div class="main-grid-cell" id="left-panel">
-		<div id="call-form-container" class="container-fluid">
+		<div id="splash-container" class="container-fluid">
 			<div id="splash-graphic"><img src="/assets/images/splash.gif"></div>
 			<div class="h1">
-				Interrupt Thanksgiving dinner fights with friendly telemarketing calls!
+                Break up Thanksgiving political arguments with friendly telemarketing calls!
 			</div>
 			<div class="h4">
-				Political arguments can get out of hand - a convinient distraction gives everybody a chance to reset.
+                Sometimes you need a convenient distraction to get the conversation back on track. Our telemarketers are standing by to save your Thanksgiving!
 			</div>
 			<div id="mobile-start-call-container" class="mobile-only">
 				</br>
@@ -26,14 +26,11 @@
 				<div style="font-size:1.5em;"><i class="fa fa-angle-down" aria-hidden="true"></i></div>
 			</div>
 		</div>
-		<div id="created-by-icon">
-			<img src="/assets/images/nobias-logo.png">	
-		</div>
     </div>
     <div class="main-grid-cell" id="right-panel">
 		<div id="call-form-container" class="container-fluid">
 			<form action="/dial" method="post" id="call-form">
-				<div>The number you wish to call:</div>
+				<div>Who should we call:</div>
 				<input 
 					type="tel" id="phone" name="phone" 
 					pattern="1\ ([0-9]{3})\ [0-9]{3}-[0-9]{4}" 
@@ -63,9 +60,12 @@
 					{% endfor %}
 				</div>
 				<br>
-				<button id="call-btn" type="submit" name="submit" value="call">CALL NOW &nbsp;<i class="fa fa-phone" aria-hidden="true"></i></button>
+				<button id="call-btn" type="submit" name="submit" value="call">SEND CALL &nbsp;<i class="fa fa-phone" aria-hidden="true"></i></button>
 			</form>
 			<div id="call-form-results"></div>
+		</div>
+        <div id="created-by-icon">
+			<img src="/assets/images/nobias-logo.png">	
 		</div>
     </div>
 </div>
