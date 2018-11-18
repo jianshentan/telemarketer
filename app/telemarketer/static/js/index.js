@@ -83,7 +83,6 @@ $(document).ready(function() {
 	$(".track-option").each(function() {
 		$(this).click(function() {
 			uncheckAllTracks();
-			console.log($(this));
 			$(this).attr("checked", true);
 			$(this).find("input").prop("checked", true);
 			updateTrackStyle();

@@ -232,16 +232,6 @@ label {
     grid-template-columns: auto minmax(400px, 30%);
     grid-template-rows: 1fr
 }
-@media only screen and ( max-device-width: 736px ) {
-	#main-grid {
-    	height: inherit;
-		grid-template-columns: 1fr;
-		grid-template-rows: 2fr;
-	}
-	.main-grid-cell {
-		height: 100vh;
-	}
-}
 #left-panel {
 	position: relative;
 }
@@ -256,6 +246,7 @@ label {
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
+    max-width: 420px;
 }
 #phone {
 	font-size: 1.8em;
@@ -266,6 +257,7 @@ label {
 	background-color: #FFF9EE; /* beige */
 	margin-top: 1.0em;
 	margin-bottom: 1.0em;
+    width: 100%;
 }
 #phone:focus {
     outline-width: 0;
@@ -318,4 +310,17 @@ input[type="radio"] {
 	color: green;
 	text-align: center;
 	margin-top: 12px;
+}
+@media only screen and ( max-device-width: 736px ) {
+	#main-grid {
+    	height: inherit;
+		grid-template-columns: 1fr;
+		grid-template-rows: 2fr;
+	}
+	.main-grid-cell {
+		height: 100vh;
+	}
+    #call-form-container {
+        max-width: inherit;
+    }
 }

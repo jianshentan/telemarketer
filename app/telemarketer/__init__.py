@@ -1,7 +1,9 @@
 import os
-from flask import Flask
+from flask import Flask, jsonify
 from .twilio import twilio
+from .blob import blob
 from .routes import bp
+import json
 
 
 def create_app(
@@ -23,6 +25,18 @@ def create_app(
     twilio.set_credentials(
         os.getenv("TWILIO_SID"), os.getenv("TWILIO_AUTH_TOKEN")
     )
+
+    # Add storage auth
+    blob.create_block_blob_service(
+        os.getenv("STORAGE_ACCOUNT_NAME"), os.getenv("STORAGE_ACCOUNT_KEY")
+    )
+
+    # create history file
+    history = {}
+    history_file = blob.get_file_name()
+    with open(history_file, 'w') as outfile:  
+        json.dump(history, outfile)
+
 
     # Apply overrides
     app.config.update(config_overrides)
