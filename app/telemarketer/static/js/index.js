@@ -30,7 +30,7 @@ $(document).ready(function() {
 	} else {
 		$("#logo-icon")
 			.find("img")
-			.attr("src", "/assets/images/logo.gif");
+			.attr("src", "/assets/images/logo.png");
 	}
 
 	/* ----------------------- */

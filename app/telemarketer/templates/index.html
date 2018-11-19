@@ -30,14 +30,14 @@
     <div class="main-grid-cell" id="right-panel">
 		<div id="call-form-container" class="container-fluid">
 			<form action="/dial" method="post" id="call-form">
-				<div>Who should we call:</div>
+				<div>Tell us who to call:</div>
 				<input 
 					type="tel" id="phone" name="phone" 
 					pattern="1\ ([0-9]{3})\ [0-9]{3}-[0-9]{4}" 
-					placeholder="1 (234) 567-8910"
+					placeholder="1 (000) 000-0000"
 					maxlength="16" required>
 				<br>
-				<div>What call should we send:</div>
+				<div>Choose a distraction to send:</div>
 				<div id="track-options">
 					{% for key, value in tracks.items() %}
 					<div class="track-option" {% if loop.index == 1 %}checked{% endif %}>
@@ -53,8 +53,8 @@
 							Your browser does not support the <code>audio</code> element.
 						</audio>
 						<div class="track-info">
-							<label for="{{key}}">{{value.get('name')}}</label>
-							<div for="{{key}}">{{value.get('desc')}}</div>
+							<label class=track-name" for="{{key}}">{{value.get('name')}}</label>
+							<div class="track-desc" for="{{key}}">{{value.get('desc')}}</div>
 						</div>
 					</div>
 					{% endfor %}
@@ -65,7 +65,7 @@
 			<div id="call-form-results"></div>
 		</div>
         <div id="created-by-icon">
-			<img src="/assets/images/nobias-logo.png">	
+            <a href="https://www.nobias.com" target="_blank"><img src="/assets/images/nobias-logo.png"></a>
 		</div>
     </div>
 </div>

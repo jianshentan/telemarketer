@@ -128,7 +128,7 @@ label {
 	left: 50%;
 	transform: translateX(-50%);
 }
-#created-by-icon > img {
+#created-by-icon img {
 	width: 120px;		
 }
 #splash-container {
@@ -179,8 +179,11 @@ label {
 	top: 24px;
 	left: 24px;
 	z-index: 100;
-	width: 48px;
-	height: 48px;
+	width: 125px;
+	height: 125px;
+}
+#logo-icon img {
+    width: 100%;
 }
 @media only screen and ( max-device-width: 736px ) {
 	#logo-icon {
@@ -229,7 +232,7 @@ label {
     width: 100vw;
     height: 100vh;
     display: grid;
-    grid-template-columns: auto minmax(400px, 30%);
+    grid-template-columns: auto minmax(400px, 35%);
     grid-template-rows: 1fr
 }
 #left-panel {
@@ -246,7 +249,8 @@ label {
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-    max-width: 420px;
+    max-width: 450px;
+    width: 100%;
 }
 #phone {
 	font-size: 1.8em;
@@ -281,6 +285,10 @@ label {
 	display: inline-block;
 	vertical-align: top;
 	margin-left: 5px;
+}
+.track-name, 
+.track-desc {
+    font-size: 0.9em;
 }
 .playpause {
 	border: 0px;

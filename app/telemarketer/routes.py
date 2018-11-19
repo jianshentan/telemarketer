@@ -16,16 +16,41 @@ bp = Blueprint("main", __name__)
 
 
 tracks = {
+    "happy_thanksgiving": {
+        "name": "Happy Thanksgiving - don't fight!",
+        "desc": "Get mad at robo-telemarketers instead of each other",
+        "url": "https://nobias.blob.core.windows.net/telemarketer/Happy%20Thanksgiving%20-%20don_t%20fight.mp3"
+    },
     "national_anthem": {
         "name": "National Anthem",
-        "desc": "This is the National Anthem",
+        "desc": "It's the National Anthem!",
         "url": "https://nobias.blob.core.windows.net/telemarketer/National%20Anthem.mp3"
     },
+    "guided_meditation": {
+        "name": "Guided Meditation",
+        "desc": "Find your cave, where no one fights about politics",
+        "url": "https://nobias.blob.core.windows.net/telemarketer/Guided%20Meditation.mp3"
+    },
+    # "smooth_jazz": {
+    #     "name": "Smooth Jazz Holding Tone",
+    #     "desc": "Please hold while your dinner is saved",
+    #     "url": "https://nobias.blob.core.windows.net/telemarketer/Smooth%20Jazz%20Holding%20Tone.mp3"
+    # },
     "ambient": {
         "name": "Ambient",
         "desc": "Shhhhhhh",
         "url": "https://nobias.blob.core.windows.net/telemarketer/Ambient.mp3"
-    }
+    },
+    "polite_agreement": {
+        "name": "Polite agreement with your political opinions",
+        "desc": "Wow, so insightful!",
+        "url": "https://nobias.blob.core.windows.net/telemarketer/Polite%20agreement.mp3"
+    },
+    "didgeridoo": {
+        "name": "Didgeridoo",
+        "desc": "Bbrrrrrrrbbbbbbrrrrgiioingingongbrrrr",
+        "url": "https://nobias.blob.core.windows.net/telemarketer/Didgeridu.mp3"
+    },
 }
 
 history = {}
@@ -120,10 +145,11 @@ def dial_number():
 
     if allowed:
         # Create a phone call that uses our other route to play a song from Spotify.
+        call_url = "{}call?track={}".format(request.url_root, track)
         twilio.client.api.account.calls.create(
             to=standardized_number,
             from_="+18572715456",  # twilio number
-            url="{}call?track={}".format(request.url_root, track),
+            url=call_url
         )
         return jsonify(success=True, message=msg)
 
@@ -132,7 +158,7 @@ def dial_number():
         return jsonify(success=False, message=msg)
 
 
-@bp.route("/call", methods=["POST"])
+@bp.route("/call", methods=["POST", "GET"])
 def outbound_call():
     """
     A route to handle the logic for phone calls.
@@ -144,6 +170,26 @@ def outbound_call():
     response = VoiceResponse()
     response.say(message="A friend or family member wanted to send you this message.")
     response.play(track_url)
+    return str(response)
+
+
+@bp.route("/call_response", methods=["POST", "GET"])
+def call_response():
+    """
+    the response if someone calls the twilio number
+    """
+    response = VoiceResponse()
+    response.say(message="Thanks for calling. Visit us at Telemarketers save Thanksgiving dot com.")
+    return str(response)
+
+
+@bp.route("/sms_response", methods=["POST", "GET"])
+def sms_response():
+    """
+    the response if someone sms's the twilio number
+    """
+    response = MessagingResponse()
+    response.message("Thanks for texting! Visit www.telemarketerssavethanksgiving.com :)")
     return str(response)
 
 

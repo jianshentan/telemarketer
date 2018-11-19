@@ -4,6 +4,8 @@
 
 This application depends on Twilio to automate voice calls. To begin, make sure you have proper authentication methods for Twilio. This includes having an twilio SID and auth token.
 
+This application also depends on Azure Blob to dump logs to. To begin, make sure you have proper authentication methods for Azure Stoage. This includes having a storage account name and a storage account key.
+
 This application is also deployed using Docker, so make sure that you have Docker installed.
 
 I would also recommend using some kind of virtual env (conda or pyenv).
