@@ -18,7 +18,7 @@ bp = Blueprint("main", __name__)
 tracks = {
     "happy_thanksgiving": {
         "name": "Happy Thanksgiving - don't fight!",
-        "desc": "Get mad at robo-telemarketers instead of each other",
+        "desc": "Get mad at telemarketers, not each other",
         "url": "https://nobias.blob.core.windows.net/telemarketer/Happy%20Thanksgiving%20-%20don_t%20fight.mp3"
     },
     "national_anthem": {
@@ -28,7 +28,7 @@ tracks = {
     },
     "guided_meditation": {
         "name": "Guided Meditation",
-        "desc": "Find your cave, where no one fights about politics",
+        "desc": "Find your cave, free from politics",
         "url": "https://nobias.blob.core.windows.net/telemarketer/Guided%20Meditation.mp3"
     },
     # "smooth_jazz": {
@@ -42,7 +42,7 @@ tracks = {
         "url": "https://nobias.blob.core.windows.net/telemarketer/Ambient.mp3"
     },
     "polite_agreement": {
-        "name": "Polite agreement with your political opinions",
+        "name": "Politely agreeing with all your opinions",
         "desc": "Wow, so insightful!",
         "url": "https://nobias.blob.core.windows.net/telemarketer/Polite%20agreement.mp3"
     },

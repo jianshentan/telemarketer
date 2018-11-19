@@ -326,9 +326,18 @@ input[type="radio"] {
 		grid-template-rows: 2fr;
 	}
 	.main-grid-cell {
-		height: 100vh;
+		min-height: 100vh;
 	}
     #call-form-container {
         max-width: inherit;
+        margin: inherit;
+        position: relative;
+        top: inherit;
+        left: inherit;
+        margin-right: inherit;
+        transform: inherit;
+        width: 100%;
+        margin-top: 5em;
+        margin-bottom: 5em;
     }
 }
